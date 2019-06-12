@@ -1,0 +1,62 @@
+{
+  "name": "blog.nandomoreira.me",
+  "description": "Nando's blog",
+  "demo": "https://blog.nandomoreira.me",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "Fernando Moreira",
+    "email": "nandomoreira.me@gmail.com",
+    "url": "https://nandomoreira.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nandomoreirame/blog.nandomoreira.me.git"
+  },
+  "bugs": "https://github.com/nandomoreirame/blog.nandomoreira.me/issues",
+  "scripts": {
+    "clean:sw": "rimraf wb-manifest.* && rimraf sw.js && rimraf webpack-report.html",
+    "clean": "npm run clean:sw && rimraf ./_includes/css && rimraf ./assets/scripts",
+    "dev": "npm run development",
+    "development": "npm run clean && cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "npm run clean && cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "pretest": "npm run lint",
+    "lint": "eslint .",
+    "test": "echo \"No has test\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.4.10",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "browser-sync": "^2.23.6",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cross-env": "^5.1.4",
+    "eslint": "^5.15.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "laravel-mix": "^4.0.14",
+    "webpack-bundle-analyzer": "^3.1.0",
+    "workbox-webpack-plugin": "^4.1.0"
+  },
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.4.1",
+    "anchor-js": "^4.2.0",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.5",
+    "lozad": "^1.9.0",
+    "moment": "^2.24.0",
+    "popper.js": "^1.14.7",
+    "vue": "^2.6.8"
+  }
+}

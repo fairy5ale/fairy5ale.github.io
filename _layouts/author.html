@@ -1,0 +1,36 @@
+---
+layout: default
+current: author
+title: Author Page
+cover: false
+class: 'author-template'
+navigation: True
+label: Author
+logo: 'assets/images/ghost.png'
+---
+
+{% for author in site.data.authors %}
+    {% if author[1].username == page.author %}
+        <header class="postSingle__header {% unless page.cover %}postSingle__header--no-image{% endunless %}">
+            <div class="postSingle__headerInner">
+                <h4 class="postSingle__category">Autor:</h4>
+                <h1 class="postSingle__title">{{ author[1].name }}</h1>
+                {% if author[1].bio %}
+                    <div class="postSingle__meta">
+                        {% if author[1].picture %}
+                            <figure class="author-avatar">
+                                <img class="author-profile-image" src="{{ author[1].picture }}" alt="{{ page.author }}" width="120">
+                            </figure>
+                        {% endif %}
+                        <p class="author-bio">{{ author[1].bio }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </header>
+    {% endif %}
+{% endfor %}
+
+<main id="site-main" class="site-main outer container" role="main">
+    {%  include post-list.html %}
+    {%  include paginator.html %}
+</main>

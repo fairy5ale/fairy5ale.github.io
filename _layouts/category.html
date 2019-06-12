@@ -1,0 +1,17 @@
+---
+layout: default
+current: category
+class: 'category-template'
+---
+
+<header class="postSingle__header {% unless page.cover %}postSingle__header--no-image{% endunless %}">
+    <div class="postSingle__headerInner">
+        <h4 class="postSingle__category">Categoria:</h4>
+        <h1 class="postSingle__title">{{ page.category }}</h1>
+    </div>
+</header>
+
+<main id="site-main" class="site-main outer container" role="main">
+    {%  include post-list.html %}
+    {%  include paginator.html %}
+</main>

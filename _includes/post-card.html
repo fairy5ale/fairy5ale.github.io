@@ -1,0 +1,34 @@
+<article class="postCard">
+    <a class="postCard__inner" href="{{ post.url }}" title="{{ post.title }}">
+        <header class="postCard__details">
+            <div class="postCard__meta">
+                <div class="postCard__category">
+                    {% for category in post.categories %}
+                        {% if forloop.index == post.categories.size %}
+                           {{ category | upcase }}
+                        {% else %}
+                           {{ category | upcase }},
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <h1 class="postCard__title">{{ post.title }}</h1>
+            <p class="postCard__description">
+                {% if post.description %}
+                    {{ post.description }}
+                {% else %}
+                    {{ post.content | strip_html | truncatewords: 20, "..." }}
+                {% endif %}
+            </p>
+        </header>
+        <footer class="postCard__footer">
+            <span class="postCard__date">
+                <i class="far fa-calendar-alt"></i>
+                {{ post.date | date: "%B, %Y" }}
+            </span>
+            <span class="postCard__view">
+                Ver post <i class="fas fa-long-arrow-alt-right"></i>
+            </span>
+        </footer>
+    </a>
+</article>

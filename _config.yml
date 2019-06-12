@@ -1,0 +1,79 @@
+# Jekyll configuration
+markdown: kramdown
+highlighter: rouge
+paginate: 12
+paginate_path: '/page/:num'
+language: 'pt-br'
+
+kramdown:
+  auto_ids: true
+
+url: 'https://blog.nandomoreira.me'
+baseurl: ''
+
+# Website info
+title: Nando's blog
+description: Vivendo minimamente
+
+# Social info
+github: nandomoreirame
+twitter: oseunando
+instagram: oseunando
+linkedin: nandomoreirame
+facebook: oseunando
+
+# Disqus
+disqus: true
+disqus_shortname: fernandomoreira
+
+# Google Analytics
+google_analytics: UA-119443578-1
+
+# Permalinks
+permalink: /:title
+plugins_dir: [_plugins]
+
+# gems and other configs
+plugins:
+  - jekyll-youtube
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+compress_html:
+  clippings: all
+  comments:  all
+  endings: all
+  ignore:
+    envs: ['development', 'local']
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
+
+include:
+  - _headers
+  - _redirects
+
+exclude:
+  - node_modules
+  - ruby-version
+  - webpack.mix.js
+  - vendor
+  - Gemfile
+  - Gemfile_
+  - gulpfile.js
+  - LICENSE
+  - package.json
+  - README.md
+  - Gemfile.lock
+  - yarn.lock
+  - .git*
+
+webserver_headers:
+  - - Access-Control-Allow-Origin
+    - "*"
+  - - Access-Control-Allow-Methods
+    - GET, OPTIONS, HEAD
